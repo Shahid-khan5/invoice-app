@@ -30,22 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let discount = disc;
     let quantity = qty;
     
-     if(price == price.valueOf(price)){
-        netPrice = (price * discount) / percentage ;
 
-        function myfunc(){
-            return (price - netPrice) * quantity;
-        }
-    }
-        myfunc();
-        console.log(myfunc());
+let discountAmount = (price * discount) / percentage;
+
+let netPricePerUnit = price - discountAmount;
+
+let totalNetPrice = netPricePerUnit * quantity;
+
+
 
         detail.push({
             "items": items,
             "stp": stp,
             "qty": qty,
             "disc": disc,
-            "netPrice": netPrice
+            "netPrice": totalNetPrice
                });
         localStorage.setItem("data", JSON.stringify(detail))
         // console.log(items , stp, qty , disc);
